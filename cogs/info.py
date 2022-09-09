@@ -19,17 +19,17 @@ class Info(commands.Cog):
             color=0xffc90d
         )
 
-        # default help command
-        embed.add_field (
-            name = "help",
-            value = "Displays the bot's default help command.",
-            inline=False
-        )
-
         # info
         embed.add_field (
             name = "info",
             value = "Alternate help command embed that you're looking at right now.",
+            inline=False
+        )
+
+        # default help command
+        embed.add_field (
+            name = "help",
+            value = "Displays the bot's default help command.",
             inline=False
         )
 
