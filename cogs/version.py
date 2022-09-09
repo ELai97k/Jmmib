@@ -6,7 +6,7 @@ class Version(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases=["botver", "botversion"])
+    @commands.command(aliases=["ver", "botver", "botversion"])
     async def version(self, ctx):
         if ctx.author == self.client.user:
             return
