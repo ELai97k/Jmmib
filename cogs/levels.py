@@ -86,6 +86,7 @@ class Levels(commands.Cog):
         answer = 100000000 * dt_time.year + 1000000 * dt_time.month + 10000 * dt_time.day + 100 * dt_time.hour + dt_time.minute
         return int(answer)
 
+
     # rank command
     @commands.command()
     async def rank(self, ctx, *, user: discord.Member = None):
