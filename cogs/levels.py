@@ -88,7 +88,7 @@ class Levels(commands.Cog):
 
 
     # rank command
-    @commands.command()
+    @commands.command(help="Command for user's current level and EXP.")
     async def rank(self, ctx, *, user: discord.Member = None):
         if ctx.author == self.client.user:
             return
@@ -148,7 +148,7 @@ class Levels(commands.Cog):
 
 
     #add database
-    @commands.command()
+    @commands.command(help="Add a new or existing user to the level system database.")
     @commands.has_permissions(administrator=True)
     async def add_database(self, ctx, *, user: discord.Member):
         if ctx.author == self.client.user:
