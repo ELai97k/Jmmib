@@ -2,12 +2,12 @@ import discord
 from discord.ext import commands
 
 class Info(commands.Cog):
-    """Custom help command embed."""
+    """Alternate help command for the bot."""
     def __init__(self, client):
         self.client = client
 
     # custom help command
-    @commands.command()
+    @commands.command(help="This is the bot's custom help embed.")
     async def info(self, ctx):
         if ctx.author == self.client.user:
             return
