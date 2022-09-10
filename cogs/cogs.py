@@ -7,7 +7,7 @@ class Cogs(commands.Cog):
         self.client = client
 
     # load cogs
-    @commands.command()
+    @commands.command(help="Command for loading cogs.")
     @commands.has_permissions(administrator=True)
     async def load(self, ctx, extension):
         if ctx.author == self.client.user:
@@ -26,7 +26,7 @@ class Cogs(commands.Cog):
         print(f'Loading {extension}')
 
     # unload cogs
-    @commands.command()
+    @commands.command(help="Command for unloading cogs.")
     @commands.has_permissions(administrator=True)
     async def unload(self, ctx, extension):
         if ctx.author == self.client.user:
@@ -45,7 +45,7 @@ class Cogs(commands.Cog):
         print(f'Unloading {extension}')
 
     # reload cogs
-    @commands.command()
+    @commands.command(help="Command for reloading cogs.")
     @commands.has_permissions(administrator=True)
     async def reload(self, ctx, extension):
         if ctx.author == self.client.user:
