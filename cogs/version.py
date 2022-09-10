@@ -2,11 +2,11 @@ import discord
 from discord.ext import commands
 
 class Version(commands.Cog):
-    """Displays the Python version for the bot."""
+    """Bot's Python version cog."""
     def __init__(self, client):
         self.client = client
 
-    @commands.command(aliases=["ver", "botver", "botversion"])
+    @commands.command(aliases=["ver", "botver", "botversion"], help="Command for the bot's current Python version.")
     async def version(self, ctx):
         if ctx.author == self.client.user:
             return
