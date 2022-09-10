@@ -56,8 +56,6 @@ class Info(commands.Cog):
         
         # footer
         embed.set_footer(text="jmm")
-
-        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
 
 
