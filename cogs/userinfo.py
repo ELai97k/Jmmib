@@ -3,11 +3,11 @@ import datetime
 from discord.ext import commands
 
 class UserInfo(commands.Cog):
-    """Command to fetch user info"""
+    """Cog for user info."""
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(help="Command to fetch user info.")
     async def userinfo(self, ctx, *, user: discord.Member = None):
         if ctx.author == self.client.user:
             return
