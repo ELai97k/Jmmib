@@ -109,7 +109,7 @@ class Levels(commands.Cog):
             lvl = int(users[str(ctx.author.name)]['level'])
             exp = int(5 * (lvl ** 2) + (50 * lvl) + 100)
 
-            # rank embed for message author
+            # rank embed for ctx author
             embed = discord.Embed (
                 title = f"**{user.name}'s Rank**",
                 color=0xffc90d
