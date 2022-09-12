@@ -22,7 +22,7 @@ class Info(commands.Cog):
         # info
         embed.add_field (
             name = "info",
-            value = "Alternate help command embed that you're looking at right now.",
+            value = "Custom help command embed that you're looking at right now.",
             inline=False
         )
 
