@@ -5,7 +5,7 @@ from discord.ext import commands
 intents = discord.Intents.default().all()
 intents.members = True
 
-client = commands.Bot(command_prefix="J!", case_insensitive=True, intents=intents)
+client = commands.Bot(command_prefix="+", case_insensitive=True, intents=intents)
 
 # cogs
 for filename in os.listdir("./cogs"):
