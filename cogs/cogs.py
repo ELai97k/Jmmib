@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands import has_permissions, MissingPermissions
 
 class Cogs(commands.Cog):
     """Commands for loading, unloading, and reloading cogs."""
@@ -8,7 +9,7 @@ class Cogs(commands.Cog):
 
     # load cogs
     @commands.command(help="Command for loading cogs.")
-    @commands.has_permissions(administrator=True)
+    @has_permissions(administrator=True)
     async def load(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -17,7 +18,7 @@ class Cogs(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
+            description = f"```Cog name {extension} has been loaded successfully and your changes were saved.```",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
@@ -25,9 +26,15 @@ class Cogs(commands.Cog):
         self.client.load_extension(f'cogs.{extension}')
         print(f'Loading {extension}')
 
+    @load.error
+    async def load_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
+
+
     # unload cogs
     @commands.command(help="Command for unloading cogs.")
-    @commands.has_permissions(administrator=True)
+    @has_permissions(administrator=True)
     async def unload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -36,7 +43,7 @@ class Cogs(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"Cog name `{extension}` has been unloaded successfully and your changes were saved.",
+            description = f"```Cog name `{extension}` has been unloaded successfully and your changes were saved.```",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
@@ -44,9 +51,15 @@ class Cogs(commands.Cog):
         self.client.unload_extension(f'cogs.{extension}')
         print(f'Unloading {extension}')
 
+    @unload.error
+    async def unload_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
+
+
     # reload cogs
     @commands.command(help="Command for reloading cogs.")
-    @commands.has_permissions(administrator=True)
+    @has_permissions(administrator=True)
     async def reload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -55,7 +68,7 @@ class Cogs(commands.Cog):
             
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"Cog name `{extension}` has been reloaded successfully and your changes were saved.",
+            description = f"```Cog name `{extension}` has been reloaded successfully and your changes were saved.```",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
@@ -63,6 +76,11 @@ class Cogs(commands.Cog):
         self.client.unload_extension(f'cogs.{extension}')
         self.client.load_extension(f'cogs.{extension}')
         print(f'Reloading {extension}')
+
+    @reload.error
+    async def reload_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
 
 def setup(client):
