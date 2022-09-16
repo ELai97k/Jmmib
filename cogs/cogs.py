@@ -18,7 +18,7 @@ class Cogs(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"```Cog name {extension} has been loaded successfully and your changes were saved.```",
+            description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
@@ -43,7 +43,7 @@ class Cogs(commands.Cog):
 
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"```Cog name `{extension}` has been unloaded successfully and your changes were saved.```",
+            description = f"Cog name `{extension}` has been unloaded successfully and your changes were saved.",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
@@ -68,7 +68,7 @@ class Cogs(commands.Cog):
             
         embed = discord.Embed (
             title = "Operation Successful!",
-            description = f"```Cog name `{extension}` has been reloaded successfully and your changes were saved.```",
+            description = f"Cog name `{extension}` has been reloaded successfully and your changes were saved.",
             color=0xffc90d
         )
         await ctx.channel.trigger_typing()
