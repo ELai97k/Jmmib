@@ -42,7 +42,7 @@ class Info(commands.Cog):
 
         # bot versiom
         embed.add_field (
-            name = "version / botversion / botver",
+            name = "version",
             value = "Python version for the bot.",
             inline=False
         )
