@@ -42,7 +42,6 @@ class Misc(commands.Cog):
             description = "This is a test embed.",
             color=0xffc90d
         )
-        embed.set_footer(text="Thank you for reading")
         await ctx.send(embed=embed)
 
 
