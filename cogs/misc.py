@@ -26,7 +26,7 @@ class Misc(commands.Cog):
         if ctx.author.bot:
             return
 
-        await ctx.send(f"Pong. Latency is {round (self.self.latency * 1000)} ms.")
+        await ctx.send(f"Pong. Latency is {round (self.client.latency * 1000)} ms.")
 
 
     # test embed
