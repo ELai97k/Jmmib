@@ -18,7 +18,7 @@ async def on_ready():
     # bot login
     print(f"{client.user} logged in successfully!")
 
-    # bot default status
+    # bot status
     await client.change_presence (
         activity = discord.Activity (
             type = discord.ActivityType.watching, name = "for goldjmmibs"
