@@ -64,6 +64,7 @@ class UserInfo(commands.Cog):
         # member status
         embed.add_field(name="Status:", value=f"{statusemojis[status]} {statusnames[status]}", inline=False)
 
+        embed.set_footer(text=f"Requested by {str(ctx.author)}")
         embed.timestamp = datetime.datetime.utcnow()
         await ctx.send(embed=embed)
 
