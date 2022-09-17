@@ -12,19 +12,19 @@ class Levels(commands.Cog):
     # add new member to users.json
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        with open('users.json', 'r')as f:
+        with open('users.json', 'r') as f:
             users = json.load(f)
 
         await self.update_data(users, member)
 
-        with open('users.json', 'w')as f:
+        with open('users.json', 'w') as f:
             json.dump(users, f)
 
     # messages as exp
     @commands.Cog.listener()
     async def on_message(self, message):
       if not message.author.bot:
-        with open('users.json','r')as f:
+        with open('users.json','r') as f:
             users = json.load(f)
         await self.update_data(users, message.author)
 
@@ -32,7 +32,7 @@ class Levels(commands.Cog):
             await self.add_experience(users, message.author)
         await self.level_up(users, message.author, message.channel)
 
-        with open('users.json', 'w')as f:
+        with open('users.json', 'w') as f:
             json.dump(users, f)
 
     # update users' exp, level, and last message into users.json
@@ -95,7 +95,7 @@ class Levels(commands.Cog):
         if ctx.author.bot:
             return
 
-        with open('users.json','r')as f:
+        with open('users.json','r') as f:
             users = json.load(f)
 
         if user is None:
@@ -143,7 +143,7 @@ class Levels(commands.Cog):
             
             await ctx.send(embed=embed)
 
-        with open('users.json', 'w')as f:
+        with open('users.json', 'w') as f:
             json.dump(users, f)
 
 
@@ -156,7 +156,7 @@ class Levels(commands.Cog):
         if ctx.author.bot:
             return
             
-        with open('users.json', 'r')as f:
+        with open('users.json', 'r') as f:
             users = json.load(f)
             
         if not str(user.name) in users:
@@ -168,7 +168,7 @@ class Levels(commands.Cog):
         else:
             await ctx.send(f"{user.name} already in database!")
 
-        with open('users.json', 'w')as f:
+        with open('users.json', 'w') as f:
             json.dump(users, f)
 
 
