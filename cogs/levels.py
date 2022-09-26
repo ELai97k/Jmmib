@@ -1,8 +1,8 @@
 import discord
-from discord.ext import commands
 import json
-from datetime import datetime
 import random
+from discord.ext import commands
+from datetime import datetime
 
 class Levels(commands.Cog):
     """Level and EXP system."""
