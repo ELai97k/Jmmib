@@ -46,10 +46,10 @@ class Info(commands.Cog):
             value = "Command to fetch user info.",
             inline=False
         )
-        
+
         # server info
         embed.add_field (
-            name = "userinfo",
+            name = "serverinfo",
             value = "Command to fetch server info.",
             inline=False
         )
