@@ -45,21 +45,5 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    # bot python version
-    @commands.command(help="Command for the bot's Python version.")
-    async def version(self, ctx):
-        if ctx.author == self.client.user:
-            return
-        if ctx.author.bot:
-            return
-
-        embed = discord.Embed (
-            title = "Current version",
-            description = "```python-3.10.7```",
-            color=0xffc90d
-        )
-        await ctx.send(embed=embed)
-
-
 def setup(client):
     client.add_cog(Misc(client))
