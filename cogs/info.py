@@ -40,17 +40,17 @@ class Info(commands.Cog):
             inline=False
         )
 
-        # bot versiom
-        embed.add_field (
-            name = "version",
-            value = "Python version for the bot.",
-            inline=False
-        )
-
         # user info
         embed.add_field (
             name = "userinfo",
             value = "Command to fetch user info.",
+            inline=False
+        )
+        
+        # server info
+        embed.add_field (
+            name = "userinfo",
+            value = "Command to fetch server info.",
             inline=False
         )
         
