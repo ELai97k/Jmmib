@@ -35,9 +35,6 @@ class UserInfo(commands.Cog):
         # server / guild permissions
         perm_string = ', '.join([str(p[0]).replace("_", " ").title() for p in user.guild_permissions if p[1]])
 
-        # server join position
-        #members = sorted(ctx.guild.members, key=lambda m: m.joined_at)
-
         # user info embed
         embed = discord.Embed (
             title = f"{user.name}'s Info",
@@ -52,9 +49,6 @@ class UserInfo(commands.Cog):
         # discord account created date
         embed.add_field(name="Account created:", value=user.created_at.strftime(date_format), inline=False)
 
-        # server join position
-        #embed.add_field(name="Join position:", value=str(members.index(user)+1), inline=False)
-        
         # server roles
         embed.add_field(name="Server roles ({})".format(len(user.roles)-1), value=role_string, inline=False)
 
