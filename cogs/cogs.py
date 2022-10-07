@@ -85,3 +85,6 @@ class Cogs(commands.Cog):
 
 def setup(client):
     client.add_cog(Cogs(client))
+
+def teardown(client):
+    client.remove_cog(Cogs(client))
