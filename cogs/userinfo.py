@@ -65,3 +65,6 @@ class UserInfo(commands.Cog):
 
 def setup(client):
     client.add_cog(UserInfo(client))
+
+def teardown(client):
+    client.remove_cog(UserInfo(client))
