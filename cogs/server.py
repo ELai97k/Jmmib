@@ -33,3 +33,6 @@ class Server(commands.Cog):
 
 def setup(client):
     client.add_cog(Server(client))
+
+def teardown(client):
+    client.remove_cog(Server(client))
