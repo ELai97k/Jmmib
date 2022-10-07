@@ -174,3 +174,6 @@ class Levels(commands.Cog):
 
 def setup(client):
     client.add_cog(Levels(client))
+
+def teardown(client):
+    client.remove_cog(Levels(client))
