@@ -25,3 +25,6 @@ class Jmm(commands.Cog):
 
 def setup(client):
     client.add_cog(Jmm(client))
+
+def teardown(client):
+    client.remove_cog(Jmm(client))
