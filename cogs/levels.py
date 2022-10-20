@@ -2,6 +2,7 @@ import discord
 import json
 import random
 from discord.ext import commands
+from discord.ext.commands import MissingPermissions
 from datetime import datetime
 
 class Levels(commands.Cog):
@@ -170,6 +171,11 @@ class Levels(commands.Cog):
 
         with open('users.json', 'w') as f:
             json.dump(users, f)
+
+    @add_database.error
+    async def add_database(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
 
 def setup(client):
