@@ -173,7 +173,7 @@ class Levels(commands.Cog):
             json.dump(users, f)
 
     @add_database.error
-    async def add_database(self, ctx, error):
+    async def add_database_error(self, ctx, error):
         if isinstance(error, MissingPermissions):
             await ctx.send("You do not have permission to use this command!")
 
