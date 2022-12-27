@@ -14,16 +14,16 @@ class Jmm(commands.Cog):
             return
 
         if "jmm" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("jmm")
 
         if "jumm" in message.content.lower():
-            await message.channel.trigger_typing()
+            await message.channel.typing()
             await message.channel.send("jumm")
 
 
-def setup(client):
-    client.add_cog(Jmm(client))
+async def setup(client):
+    await client.add_cog(Jmm(client))
 
-def teardown(client):
-    client.remove_cog(Jmm(client))
+async def teardown(client):
+    await client.remove_cog(Jmm(client))
