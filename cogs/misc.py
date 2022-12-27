@@ -45,8 +45,8 @@ class Misc(commands.Cog):
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(Misc(client))
+async def setup(client):
+    await client.add_cog(Misc(client))
 
-def teardown(client):
-    client.remove_cog(Misc(client))
+async def teardown(client):
+    await client.remove_cog(Misc(client))
