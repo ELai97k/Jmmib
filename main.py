@@ -1,5 +1,6 @@
 import discord
 import os
+import asyncio
 from discord.ext import commands
 
 intents = discord.Intents.default().all()
@@ -60,9 +61,14 @@ case_insensitive=True,
 intents=intents)
 
 # cogs
-for filename in os.listdir("./cogs"):
-    if filename.endswith(".py"):
-        client.load_extension(f'cogs.{filename [:-3]}')
+async def load_extensions():
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            await client.load_extension(f'cogs.{filename [:-3]}')
+
+async def main():
+    await load_extensions()
+asyncio.run(main())
 
 # on ready event
 @client.event
