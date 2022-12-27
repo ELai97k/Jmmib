@@ -21,9 +21,9 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
             color=0xffc90d
         )
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(embed=embed)
-        self.client.load_extension(f'cogs.{extension}')
+        await self.client.load_extension(f'cogs.{extension}')
         print(f'Loading {extension}')
 
     @load.error
@@ -46,9 +46,9 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been unloaded successfully and your changes were saved.",
             color=0xffc90d
         )
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(embed=embed)
-        self.client.unload_extension(f'cogs.{extension}')
+        await self.client.unload_extension(f'cogs.{extension}')
         print(f'Unloading {extension}')
 
     @unload.error
@@ -71,10 +71,9 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been reloaded successfully and your changes were saved.",
             color=0xffc90d
         )
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(embed=embed)
-        self.client.unload_extension(f'cogs.{extension}')
-        self.client.load_extension(f'cogs.{extension}')
+        await self.client.reload_extension(f'cogs.{extension}')
         print(f'Reloading {extension}')
 
     @reload.error
@@ -83,8 +82,8 @@ class Cogs(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-def setup(client):
-    client.add_cog(Cogs(client))
+async def setup(client):
+    await client.add_cog(Cogs(client))
 
-def teardown(client):
-    client.remove_cog(Cogs(client))
+async def teardown(client):
+    await client.remove_cog(Cogs(client))
