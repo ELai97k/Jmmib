@@ -70,15 +70,17 @@ class Levels(commands.Cog):
             embed = discord.Embed (
                 color=0xffc90d
             )
-            embed.set_author(name=str(user), icon_url=user.avatar_url)
+            embed.set_author(name=str(user), icon_url=user.avatar.url)
             embed.add_field (
                 name = f"Congratulations {user.name}!",
                 value = f"You are now **Jmmib Level {lvl}** <:level_up:921018339843797022>",
                 inline=False
             )
-            embed.set_thumbnail(url=f"{user.avatar_url}")
+            try:
+                embed.set_thumbnail(url=user.avatar.url)
+            except:
+                embed.set_thumbnail(url=str(user.display_avatar.url))
             await channel.send(embed=embed)
-            #await channel.send(f"Congratulations {user.mention}! You are now **Jmmib Level {lvl}** <:level_up:921018339843797022>")
 
             users[str(user.name)]['level'] = lvl+1
             users[str(user.name)]['experience'] -= lvl_end
@@ -115,7 +117,10 @@ class Levels(commands.Cog):
                 title = f"**{user.name}'s Rank**",
                 color=0xffc90d
             )
-            embed.set_thumbnail(url=f"{user.avatar_url}")
+            try:
+                embed.set_thumbnail(url=user.avatar.url)
+            except:
+                embed.set_thumbnail(url=str(user.display_avatar.url))
             embed.add_field(name="Jmmib Level:", value=f"**{users[str(user.name)]['level']}**", inline=False)
             embed.add_field(name="Goldjmmibs:", value=f"<:gold_jmmib:1008380332787122256> **{str(int(users[str(user.name)]['experience']))} / {exp}**",inline=False)
             embed.set_footer(text="Chat more to earn more goldjmmibs!")
@@ -137,7 +142,10 @@ class Levels(commands.Cog):
               title=f"**{user.name}'s Rank**",
               color=0xffc90d
             )
-            embed.set_thumbnail(url=f"{user.avatar_url}")
+            try:
+                embed.set_thumbnail(url=user.avatar.url)
+            except:
+                embed.set_thumbnail(url=str(user.display_avatar.url))
             embed.add_field(name="Jmmib Level:", value=f"**{users[str(user.name)]['level']}**", inline=False)
             embed.add_field(name="Goldjmmibs:", value=f"<:gold_jmmib:1008380332787122256> **{str(int(users[str(user.name)]['experience']))} / {exp}**",inline=False)
             embed.set_footer(text="Chat more to earn more goldjmmibs!")
@@ -178,8 +186,8 @@ class Levels(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-def setup(client):
-    client.add_cog(Levels(client))
+async def setup(client):
+    await client.add_cog(Levels(client))
 
-def teardown(client):
-    client.remove_cog(Levels(client))
+async def teardown(client):
+    await client.remove_cog(Levels(client))
